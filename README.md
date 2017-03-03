@@ -25,3 +25,10 @@ The bot is designed around the MSP430f5529 microcontroller. It will be heavily b
 6. Write up pseudo code
 7. Begin writing correct code
 8. Win every competition
+
+1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list. 
+1. Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list
+4. And another item.
