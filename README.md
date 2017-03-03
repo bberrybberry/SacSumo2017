@@ -15,8 +15,17 @@ The PCB is designed in DipTrace.
 The bot is designed around the MSP430f5529 microcontroller. It will be heavily based on driverlib in MSPWARE.
 
 #### TODO:
-1. Make this readme more useful
-2. Finish schemantic
+<ol>
+<li>Make this readme more useful</li>
+<li>Finish schemantic</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<ol>
+1. 
+2. 
 -* Make sure you like the battery selected
 -* Assure GPIO pins are correct
 3. Correct CAD in onshape
