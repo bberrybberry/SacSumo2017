@@ -17,14 +17,9 @@ The bot is designed around the MSP430f5529 microcontroller. It will be heavily b
 #### TODO:
 <ol>
 <li>Make this readme more useful</li>
-<li>Finish schemantic</li>
-<ul>
-<li>Make sure you like the battery selected</li>
-<li>Assure GPIO pins are correct</li>
-</ul>
 <li>Correct CAD in onshape</li>
 <li>Finish parts order</li>
-<li>Wire PCB</li>
+<li>Obtain PCB</li>
 <li>Write up pseudo code</li>
 <li>Begin writing correct code</li>
 <ol>
