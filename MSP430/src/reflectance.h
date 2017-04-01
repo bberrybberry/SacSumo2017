@@ -10,6 +10,11 @@
 
 
 
+void init(ADCL, ADCR)
+
+int getL(void)
+int getR(void)
+
 
 
 #endif /* REFLECTANCE_H_ */
