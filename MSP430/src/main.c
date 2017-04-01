@@ -3,6 +3,10 @@
  */
 #include "driverlib.h"
 
+#include "motors.h"
+#include "reflectance.h"
+#include "ir.h"
+
 #define TIMER_PERIOD 511
 #define DUTY_CYCLE  350
 
