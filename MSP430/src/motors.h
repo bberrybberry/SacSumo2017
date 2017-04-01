@@ -23,10 +23,10 @@
  */
 
 //TODO: everything for motor B and back motors
-#define F_AIN1_PORT /**/;
-#define F_AIN1_PIN /**/;
-#define F_AIN2_PORT /**/;
-#define F_AIN2_PIN /**/;
+#define MOTOR_IN_PORT /**/; //port 7
+#define MOTOR_IN_A_PIN /**/; //p7.5
+#define MOTOR_IN_B_PIN /**/; //p7.6
+#define MOTOR_IN_C_PIN /**/; //p7.7
 #define F_PWMA_PORT /**/;
 #define F_PWMA_PIN /**/;
 #define F_ENABLE_PORT /**/;
