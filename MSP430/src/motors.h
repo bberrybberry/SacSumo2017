@@ -42,7 +42,13 @@
 #define F_ENABLE_PIN GPIO_PIN5
 
 #define ON	1
-#define OFF ~ON
+
+#if ON
+#define OFF 0
+#else
+#define OFF 1
+#endif
+
 /**
  * Enums
  */
