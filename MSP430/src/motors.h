@@ -56,6 +56,8 @@ typedef enum{
     FORWARD, BACKWARD, LEFT, RIGHT, SOFT_BRAKE, HARD_BRAKE
 } motorDir;
 
+typedef enum{ CC, CCW } direction;
+
 /**
  * Initialize the motor driver
  */
@@ -63,6 +65,11 @@ void init(void);
 
 void setSpeed(unsigned char pin, unsigned char duty);
 void setDir(motorDir dir);
+
+void setFrontMotorA(direction dir);
+void setFrontMotorB(direction dir);
+void setBackMotorA(direction dir);
+void setBackMotorB(direction dir);
 
 
 #endif /* MOTORS_H_ */
