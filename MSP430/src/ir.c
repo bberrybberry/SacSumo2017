@@ -6,7 +6,7 @@
  */
 
 #include "ir.h"
-
+#include "msp430f5529.h"
 
 void IR_init(unsigned char irSensor) {
 	P7OUT &= ~irSensor;
