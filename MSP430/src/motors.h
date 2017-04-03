@@ -56,7 +56,7 @@ typedef enum{
     FORWARD, BACKWARD, LEFT, RIGHT, SOFT_BRAKE, HARD_BRAKE
 } motorDir;
 
-typedef enum{ CC, CCW } direction;
+typedef enum{ CW, CCW, SHORT_BRAKE, STOP } direction;
 
 /**
  * Initialize the motor driver
