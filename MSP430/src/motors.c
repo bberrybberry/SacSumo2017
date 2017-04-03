@@ -21,19 +21,47 @@ void init(){
     //init PWM: 50%;
     timer_period_g = 1000;
     motor_speed_g = 950;
-    //P1.3 as PWM output
+    //P1.1-4 as PWM output
     GPIO_setAsPeripheralModuleFunctionOutputPin(PWM_PORT, F_PWMA_PIN | F_PWMB_PIN | B_PWMA_PIN | B_PWMB_PIN);
     //Generate PWM on A0.0 - Timer runs in Up mode
+    Timer_A_outputPWMParam FPWMA = {0};
+    FPWMA.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
+    FPWMA.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
+    FPWMA.timerPeriod = timer_period_g;
+    FPWMA.compareRegister = TIMER_A_CAPTURECOMPARE_REGISTER_0;
+    FPWMA.compareOutputMode = TIMER_A_OUTPUTMODE_RESET_SET;
+    FPWMA.dutyCycle = motor_speed_g;
+    Timer_A_outputPWM(TIMER_A0_BASE, &FPWMA);
+
+    //Generate PWM on A0.1 - Timer runs in Up mode
+    Timer_A_outputPWMParam FPWMB = {0};
+    FPWMB.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
+    FPWMB.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
+    FPWMB.timerPeriod = timer_period_g;
+    FPWMB.compareRegister = TIMER_A_CAPTURECOMPARE_REGISTER_1;
+    FPWMB.compareOutputMode = TIMER_A_OUTPUTMODE_RESET_SET;
+    FPWMB.dutyCycle = motor_speed_g;
+    Timer_A_outputPWM(TIMER_A0_BASE, &FPWMB);
+
+    //Generate PWM on A0.2 - Timer runs in Up mode
+    Timer_A_outputPWMParam BPWMA = {0};
+    BPWMA.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
+    BPWMA.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
+    BPWMA.timerPeriod = timer_period_g;
+    BPWMA.compareRegister = TIMER_A_CAPTURECOMPARE_REGISTER_2;
+    BPWMA.compareOutputMode = TIMER_A_OUTPUTMODE_RESET_SET;
+    BPWMA.dutyCycle = motor_speed_g;
+    Timer_A_outputPWM(TIMER_A0_BASE, &BPWMA);
+
+    //Generate PWM on A0.3 - Timer runs in Up mode
     Timer_A_outputPWMParam param = {0};
     param.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
     param.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
     param.timerPeriod = timer_period_g;
-    param.compareRegister = TIMER_A_CAPTURECOMPARE_REGISTER_0;
+    param.compareRegister = TIMER_A_CAPTURECOMPARE_REGISTER_3;
     param.compareOutputMode = TIMER_A_OUTPUTMODE_RESET_SET;
     param.dutyCycle = motor_speed_g;
     Timer_A_outputPWM(TIMER_A0_BASE, &param);
-
-    //TODO: Init other three PWM
 
 }
 
