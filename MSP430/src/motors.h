@@ -3,6 +3,7 @@
  */
 
 #include <stdint.h>
+#include "driverlib.h"
 
 #ifndef MOTORS_H_
 #define MOTORS_H_
@@ -23,14 +24,17 @@
  */
 
 //TODO: everything for motor B and back motors
-#define MOTOR_IN_PORT /**/; //port 7
-#define MOTOR_IN_A_PIN /**/; //p7.5
-#define MOTOR_IN_B_PIN /**/; //p7.6
-#define MOTOR_IN_C_PIN /**/; //p7.7
-#define F_PWMA_PORT /**/;
-#define F_PWMA_PIN /**/;
-#define F_ENABLE_PORT /**/;
-#define F_ENABLE_PIN /**/;
+#define MOTOR_IN_PORT /**/ //port 7
+#define MOTOR_IN_A_PIN /**/ //p7.5
+#define MOTOR_IN_B_PIN /**/ //p7.6
+#define MOTOR_IN_C_PIN /**/ //p7.7
+#define F_PWMA_PORT /**/
+#define F_PWMA_PIN /**/
+#define F_ENABLE_PORT /**/
+#define F_ENABLE_PIN /**/
+
+#define ON	1
+#define OFF ~ON
 
 /**
  * Enums
@@ -44,6 +48,8 @@ typedef enum{
  */
 void init(void);
 
+void setSpeed(unsigned char pin, unsigned char duty);
+void setDir(motorDir dir);
 
 
 #endif /* MOTORS_H_ */

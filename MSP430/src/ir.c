@@ -6,7 +6,6 @@
  */
 
 #include "ir.h"
-#include "driverlib.h"
 
 
 void IR_init(unsigned char irSensor) {
