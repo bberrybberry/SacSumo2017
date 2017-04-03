@@ -8,14 +8,14 @@
 /**
  * Globals
  */
-uint8_t timer_period_g;
-uint8_t motor_speed_g;
+uint16_t timer_period_g;
+uint16_t motor_speed_g;
 
 void init(){
     //init digital direction inputs
-    GPIO_setAsOutputPin(MOTOR_IN_PORT_1, MOTOR_IN_PIN_B-AIN1 | MOTOR_IN_PIN_B-AIN2 | MOTOR_IN_PIN_B-BIN1);
-    GPIO_setAsOutputPin(MOTOR_IN_PORT_2, MOTOR_IN_PIN_F-AIN1 | MOTOR_IN_PIN_B-BIN2);
-    GPIO_setAsOutputPin(MOTOR_IN_PORT_3, MOTOR_IN_PIN_F-AIN2 | MOTOR_IN_PIN_F-BIN1 | MOTOR_IN_PIN_B-BIN2);
+    GPIO_setAsOutputPin(MOTOR_IN_PORT_1, MOTOR_IN_PIN_B_AIN1 | MOTOR_IN_PIN_B_AIN2 | MOTOR_IN_PIN_B_BIN1);
+    GPIO_setAsOutputPin(MOTOR_IN_PORT_2, MOTOR_IN_PIN_F_AIN1 | MOTOR_IN_PIN_B_BIN2);
+    GPIO_setAsOutputPin(MOTOR_IN_PORT_3, MOTOR_IN_PIN_F_AIN2 | MOTOR_IN_PIN_F_BIN1 | MOTOR_IN_PIN_F_BIN2);
 
 
     //init PWM: 50%;
