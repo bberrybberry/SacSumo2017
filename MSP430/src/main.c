@@ -9,14 +9,21 @@
 
 #define TIMER_PERIOD 511
 #define DUTY_CYCLE  350
-void IR_test(void) {
-	IR_init(IR_FL | IR_FR | IR_SL | IR_SR);
 
-	while(1) {
-
-	}
-
+void sensorLedTest();
+void sensorLedTest(){
+    //TODO: Toggle LED at p8.0 when an IR sensor detects an object
 }
+
+void reflectLedTest();
+void reflectLedTest(){
+    //TODO: Toggle an LED at p8.1 when the reflectance sensor reading reaches a threshold
+}
+
+void buttonTest();
+void buttonTest(){
+	//TODO: Toggle LED at p8.2 when the button at p2.4 is pressed
+
 /**
  * @fn
  * @brief Drive all motors CW
@@ -70,4 +77,6 @@ void main(void)
 
     motorTest();
 
+//    GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN1|GPIO_PIN3);
+//    GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN1|GPIO_PIN3);
 }

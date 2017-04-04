@@ -12,6 +12,11 @@ uint16_t timer_period_g;
 uint16_t motor_speed_g;
 
 void motorsInit(){
+
+    GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN5);
+    GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN5);
+
+
     //init digital direction inputs
     GPIO_setAsOutputPin(MOTOR_IN_PORT_1, MOTOR_IN_PIN_B_AIN1 | MOTOR_IN_PIN_B_AIN2 | MOTOR_IN_PIN_B_BIN1);
     GPIO_setAsOutputPin(MOTOR_IN_PORT_2, MOTOR_IN_PIN_F_AIN1 | MOTOR_IN_PIN_B_BIN2);
