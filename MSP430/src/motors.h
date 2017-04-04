@@ -58,12 +58,17 @@ typedef enum{
 
 typedef enum{ CW, CCW, SHORT_BRAKE, STOP } direction;
 
+Timer_A_outputPWMParam FPWMA = {0};
+Timer_A_outputPWMParam FPWMB = {0};
+Timer_A_outputPWMParam BPWMA = {0};
+Timer_A_outputPWMParam BPWMB = {0};
+
 /**
  * Initialize the motor driver
  */
 void motorsInit(void);
 
-void setSpeed(unsigned char pin, unsigned char duty);
+void setSpeed(uint8_t pin, uint16_t duty);
 void setDir(motorDir dir);
 
 void setFrontMotorA(direction dir);
