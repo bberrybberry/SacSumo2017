@@ -54,7 +54,7 @@
  */
 typedef enum{
     FORWARD, BACKWARD, LEFT, RIGHT, SOFT_BRAKE, HARD_BRAKE
-} motorDir;
+} botDir;
 
 typedef enum{ CW, CCW, SHORT_BRAKE, STOP } direction;
 
