@@ -12,13 +12,17 @@
 
 void sensorLedTest();
 void sensorLedTest(){
-    //TODO: Flash LED when an IR sensor detects an object
+    //TODO: Toggle LED at p8.0 when an IR sensor detects an object
 }
 
 void reflectLedTest();
 void reflectLedTest(){
-    //TODO: Flash an LED when the reflectance sensor reading reaches a threshold
+    //TODO: Toggle an LED at p8.1 when the reflectance sensor reading reaches a threshold
 }
+
+void buttonTest();
+void buttonTest(){
+	//TODO: Toggle LED at p8.2 when the button at p2.4 is pressed
 
 /**
  * @fn
