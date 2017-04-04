@@ -65,7 +65,7 @@ void motorTest();
 void motorTest(){
     //init (f/B)inx
 
-
+    motorsInit();
 }
 
 
