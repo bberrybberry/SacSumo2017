@@ -61,7 +61,7 @@ typedef enum{ CW, CCW, SHORT_BRAKE, STOP } direction;
 /**
  * Initialize the motor driver
  */
-void init(void);
+void motorsInit(void);
 
 void setSpeed(unsigned char pin, unsigned char duty);
 void setDir(motorDir dir);
