@@ -5,11 +5,18 @@
 
 #include "motors.h"
 //#include "reflectance.h"
-//#include "ir.h"
+#include "ir.h"
 
 #define TIMER_PERIOD 511
 #define DUTY_CYCLE  350
+void IR_test(void) {
+	IR_init(IR_FL | IR_FR | IR_SL | IR_SR);
 
+	while(1) {
+
+	}
+
+}
 /**
  * @fn
  * @brief Drive all motors CW

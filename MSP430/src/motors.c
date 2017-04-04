@@ -24,7 +24,6 @@ void motorsInit(){
     //P1.1-4 as PWM output
     GPIO_setAsPeripheralModuleFunctionOutputPin(PWM_PORT, F_PWMA_PIN | F_PWMB_PIN | B_PWMA_PIN | B_PWMB_PIN);
     //Generate PWM on A0.0 - Timer runs in Up mode
-    Timer_A_outputPWMParam FPWMA = {0};
     FPWMA.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
     FPWMA.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
     FPWMA.timerPeriod = timer_period_g;
@@ -34,7 +33,6 @@ void motorsInit(){
     Timer_A_outputPWM(TIMER_A0_BASE, &FPWMA);
 
     //Generate PWM on A0.1 - Timer runs in Up mode
-    Timer_A_outputPWMParam FPWMB = {0};
     FPWMB.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
     FPWMB.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
     FPWMB.timerPeriod = timer_period_g;
@@ -44,7 +42,6 @@ void motorsInit(){
     Timer_A_outputPWM(TIMER_A0_BASE, &FPWMB);
 
     //Generate PWM on A0.2 - Timer runs in Up mode
-    Timer_A_outputPWMParam BPWMA = {0};
     BPWMA.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
     BPWMA.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
     BPWMA.timerPeriod = timer_period_g;
@@ -54,22 +51,45 @@ void motorsInit(){
     Timer_A_outputPWM(TIMER_A0_BASE, &BPWMA);
 
     //Generate PWM on A0.3 - Timer runs in Up mode
-    Timer_A_outputPWMParam param = {0};
-    param.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
-    param.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
-    param.timerPeriod = timer_period_g;
-    param.compareRegister = TIMER_A_CAPTURECOMPARE_REGISTER_3;
-    param.compareOutputMode = TIMER_A_OUTPUTMODE_RESET_SET;
-    param.dutyCycle = motor_speed_g;
-    Timer_A_outputPWM(TIMER_A0_BASE, &param);
+    BPWMB.clockSource = TIMER_A_CLOCKSOURCE_ACLK;//TIMER_A_CLOCKSOURCE_SMCLK;
+    BPWMB.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
+    BPWMB.timerPeriod = timer_period_g;
+    BPWMB.compareRegister = TIMER_A_CAPTURECOMPARE_REGISTER_3;
+    BPWMB.compareOutputMode = TIMER_A_OUTPUTMODE_RESET_SET;
+    BPWMB.dutyCycle = motor_speed_g;
+    Timer_A_outputPWM(TIMER_A0_BASE, &BPWMB);
 
 }
 
 
-void setSpeed(unsigned char pin, unsigned char duty) {
-
+void setSpeed(uint8_t pin, uint16_t duty) {
+	switch(pin) {
+	case F_PWMA_PIN:
+		motor_speed_g = duty;
+		FPWMA.dutyCycle = motor_speed_g;
+		Timer_A_outputPWM(TIMER_A0_BASE, &FPWMA);
+		break;
+	case F_PWMB_PIN:
+		motor_speed_g = duty;
+		FPWMB.dutyCycle = motor_speed_g;
+		Timer_A_outputPWM(TIMER_A0_BASE, &FPWMB);
+		break;
+	case B_PWMA_PIN:
+		motor_speed_g = duty;
+		BPWMA.dutyCycle = motor_speed_g;
+		Timer_A_outputPWM(TIMER_A0_BASE, &BPWMA);
+		break;
+	case B_PWMB_PIN:
+		motor_speed_g = duty;
+		BPWMB.dutyCycle = motor_speed_g;
+		Timer_A_outputPWM(TIMER_A0_BASE, &BPWMB);
+		break;
+	default:
+		break;
+	}
 }
-
+// Motor A: Right
+// Motor B: Left
 void setDir(motorDir dir) {
 
 	switch(dir) {
@@ -78,36 +98,60 @@ void setDir(motorDir dir) {
 		// set FBIN2 = OFF	FBIN2 = ON
 		// set BAIN1 = OFF	BAIN2 = ON
 		// set BBIN1 = OFF	BBIN2 = ON
+		setFrontMotorA(CW);
+		setFrontMotorB(CW);
+		setBackMotorA(CW);
+		setBackMotorB(CW);
 		break;
 	case BACKWARD:
 		// set FAIN1 = ON	FAIN2 = OFF
 		// set FBIN2 = ON	FBIN2 = OFF
 		// set BAIN1 = ON	BAIN2 = OFF
 		// set BBIN1 = ON	BBIN2 = OFF
+		setFrontMotorA(CCW);
+		setFrontMotorB(CCW);
+		setBackMotorA(CCW);
+		setBackMotorB(CCW);
 		break;
 	case LEFT:
 		// set FAIN1 = ON	FAIN2 = OFF
 		// set FBIN1 = OFF	FBIN2 = ON
 		// set BAIN1 = ON	BAIN2 = OFF
 		// set BBIN2 = OFF	BBIN2 = ON
+		setFrontMotorA(CW);
+		setFrontMotorB(CCW);
+		setBackMotorA(CW);
+		setBackMotorB(CCW);
 		break;
 	case RIGHT:
 		// set FAIN1 = OFF	FAIN2 = ON
 		// set FBIN1 = ON	FBIN2 = OFF
 		// set BAIN1 = OFF	BAIN2 = ON
 		// set BBIN1 = ON	BBIN2 = OFF
+		setFrontMotorA(CCW);
+		setFrontMotorB(CW);
+		setBackMotorA(CCW);
+		setBackMotorB(CW);
 		break;
 	case SOFT_BRAKE:
 		// set FAIN1 = ON	FAIN2 = ON
 		// set FBIN1 = ON	FBIN2 = ON
 		// set BAIN1 = ON	BAIN2 = ON
 		// set BBIN1 = ON	BBIN2 = ON
+		setFrontMotorA(SOFT_BRAKE);
+		setFrontMotorB(SOFT_BRAKE);
+		setBackMotorA(SOFT_BRAKE);
+		setBackMotorB(SOFT_BRAKE);
 		break;
 	case HARD_BRAKE:
 		// set FAIN1 = OFF	FAIN2 = OFF
 		// set FBIN1 = OFF	FBIN2 = OFF
 		// set BAIN1 = OFF	BAIN2 = OFF
 		// set BBIN1 = OFF	BBIN2 = OFF
+		setFrontMotorA(STOP);
+		setFrontMotorB(STOP);
+		setBackMotorA(STOP);
+		setBackMotorB(STOP);
 		break;
 	default:
 		break;
