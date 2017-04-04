@@ -10,6 +10,16 @@
 #define TIMER_PERIOD 511
 #define DUTY_CYCLE  350
 
+void sensorLedTest();
+void sensorLedTest(){
+    //TODO: Flash LED when an IR sensor detects an object
+}
+
+void reflectLedTest();
+void reflectLedTest(){
+    //TODO: Flash an LED when the reflectance sensor reading reaches a threshold
+}
+
 /**
  * @fn
  * @brief Drive all motors CW
@@ -63,4 +73,6 @@ void main(void)
 
     motorTest();
 
+//    GPIO_setAsOutputPin(GPIO_PORT_P1, GPIO_PIN1|GPIO_PIN3);
+//    GPIO_setOutputHighOnPin(GPIO_PORT_P1, GPIO_PIN1|GPIO_PIN3);
 }
