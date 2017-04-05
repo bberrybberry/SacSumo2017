@@ -13,6 +13,12 @@
 void sensorLedTest();
 void sensorLedTest(){
     //TODO: Toggle LED at p8.0 when an IR sensor detects an object
+	if (IR_getOutput(IR_FL) | IR_getOutput(IR_FR) | IR_getOutput(IR_SL) | IR_getOutput(IR_SR)) {
+		GPIO_setOutputHighOnPin(GPIO_PORT_P8, GPIO_PIN0);
+	}
+	else {
+		GPIO_setOutputLowOnPin(GPIO_PORT_P8, GPIO_PIN0);
+	}
 }
 
 void reflectLedTest();
@@ -21,7 +27,7 @@ void reflectLedTest(){
 }
 
 void buttonTest();
-void buttonTest(){
+//void buttonTest(){}
 	//TODO: Toggle LED at p8.2 when the button at p2.4 is pressed
 
 /**
