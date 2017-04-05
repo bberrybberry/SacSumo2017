@@ -29,6 +29,7 @@ void reflectLedTest(){
 void buttonTest();
 //void buttonTest(){}
 	//TODO: Toggle LED at p8.2 when the button at p2.4 is pressed
+}
 
 /**
  * @fn

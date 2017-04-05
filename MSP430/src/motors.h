@@ -9,17 +9,6 @@
 #define MOTORS_H_
 
 /**
- * Global variables
- */
-//uint8_t ain1Port;
-//uint8_t ain1Pin;
-//uint8_t ain2Port;
-//uint8_t ain2Pin;
-//uint8_t PWMAPort;
-//uint8_t PWMAPin;
-
-
-/**
  * Defines
  */
 #define MOTOR_IN_PORT_1 GPIO_PORT_P2 //B-AIN1 B-AIN2 B-BIN1
@@ -54,14 +43,9 @@
  */
 typedef enum{
     FORWARD, BACKWARD, LEFT, RIGHT, SOFT_BRAKE, HARD_BRAKE
-} motorDir;
+} botDir;
 
 typedef enum{ CW, CCW, SHORT_BRAKE, STOP } direction;
-
-Timer_A_outputPWMParam FPWMA = {0};
-Timer_A_outputPWMParam FPWMB = {0};
-Timer_A_outputPWMParam BPWMA = {0};
-Timer_A_outputPWMParam BPWMB = {0};
 
 /**
  * Initialize the motor driver
@@ -69,7 +53,7 @@ Timer_A_outputPWMParam BPWMB = {0};
 void motorsInit(void);
 
 void setSpeed(uint8_t pin, uint16_t duty);
-void setDir(motorDir dir);
+void setDir(botDir dir);
 
 void setFrontMotorA(direction dir);
 void setFrontMotorB(direction dir);
