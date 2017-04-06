@@ -13,5 +13,5 @@ void IR_init(unsigned char irSensor) {
 }
 
 unsigned char IR_getOutput(unsigned char irSensor) {
-	return (P7IN & irSensor);
+	return (~P7IN & irSensor);
 }

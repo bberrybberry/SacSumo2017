@@ -14,10 +14,10 @@
 #define IR_H_
 
 
-#define	IR_FL	0x01	/**> Front left sensor at P7.1*/
-#define	IR_FR	0x02	/**> Front right sensor at P7.2*/
-#define	IR_SL	0x00	/**> Side left sensor at P7.0*/
-#define	IR_SR	0x03	/**> Side right sensor at P7.3*/
+#define	IR_FL	0x02	/**> Front left sensor at P7.1*/
+#define	IR_FR	0x04	/**> Front right sensor at P7.2*/
+#define	IR_SL	0x01	/**> Side left sensor at P7.0*/
+#define	IR_SR	0x08	/**> Side right sensor at P7.3*/
 
 /**
  * @fn IR_init(unsigned char irSensor)
