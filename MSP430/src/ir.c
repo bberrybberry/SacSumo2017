@@ -9,7 +9,7 @@
 #include "msp430f5529.h"
 
 void IR_init(unsigned char irSensor) {
-	P7OUT &= ~irSensor;
+	P7DIR &= ~irSensor;
 }
 
 unsigned char IR_getOutput(unsigned char irSensor) {

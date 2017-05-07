@@ -38,6 +38,8 @@
 #define OFF 1
 #endif
 
+#define INITIAL_DUTY	100
+#define TWO_MS_COUNT	48000
 /**
  * Enums
  */
@@ -60,5 +62,7 @@ void setFrontMotorB(direction dir);
 void setBackMotorA(direction dir);
 void setBackMotorB(direction dir);
 
+void initSoftwarePWM();
+void setSoftwarePWM(uint16_t duty);
 
 #endif /* MOTORS_H_ */

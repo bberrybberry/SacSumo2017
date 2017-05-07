@@ -8,12 +8,12 @@
 #ifndef REFLECTANCE_H_
 #define REFLECTANCE_H_
 
+#include "driverlib.h"
 
+void Reflectance_init(void);
 
-void init(ADCL, ADCR)
-
-int getL(void)
-int getR(void)
+uint16_t Reflectance_getL(void);
+uint16_t Reflectance_getR(void);
 
 
 

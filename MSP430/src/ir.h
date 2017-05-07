@@ -22,13 +22,14 @@
 /**
  * @fn IR_init(unsigned char irSensor)
  * @param irSensor The address of which sensor is being addressed, get from defines
+ * @brief Sets the specified sensor(s) as inputs
  */
 void IR_init(unsigned char irSensor);
 
 /**
  * @fn IR_getOutput(unsigned char irSensor)
  * @param irSensor The address of which sensor is being addressed, get from defines
- *
+ * @brief Returns the value of the specified sensor(s)
  */
 unsigned char IR_getOutput(unsigned char irSensor);
 
